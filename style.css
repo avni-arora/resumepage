@@ -1,0 +1,396 @@
+/* Colour Palette & Typography Variables */
+:root {
+  --bg: #FAF8F3;
+  --surface: #F2EFE7;
+  --paper: #FFFFFF;
+  --ink: #1F211E;
+  --ink-muted: #52564E;
+  --border: #D8D3C6;
+  --accent: #3E563C;
+  --accent-hover: #2D402B;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base Reset & Element Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+p {
+  max-width: 68ch;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Layout Container & Sections */
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Navigation Bar (Flexbox) */
+#top-nav {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+  gap: 16px;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-link {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 4px;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* Hero Section */
+#hero {
+  padding: 72px 0 64px;
+}
+
+.side-note {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.hero-bio {
+  font-size: 1.15rem;
+  margin-bottom: 28px;
+}
+
+.availability-note {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  margin-top: 20px;
+}
+
+/* Buttons & Interactive Controls */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--paper);
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Experience & Timeline Section */
+.section-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeline-item {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.meta-tag {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.detail-list {
+  padding-left: 18px;
+  margin-top: 8px;
+  max-width: 68ch;
+}
+
+.detail-list li {
+  margin-bottom: 8px;
+}
+
+/* Projects & Creative Cards (CSS Grid) */
+.section-header {
+  margin-bottom: 28px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+/* Printable Paper Resume Section */
+.resume-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.paper-sheet {
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  padding: 36px 40px;
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.resume-header {
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.resume-header h3 {
+  font-size: 1.65rem;
+  margin-bottom: 4px;
+}
+
+.resume-contact {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.resume-profile {
+  margin-bottom: 14px;
+  max-width: 100%;
+}
+
+.resume-block {
+  margin-top: 14px;
+}
+
+.resume-block h4 {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3px;
+  margin-bottom: 8px;
+}
+
+.resume-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.resume-block ul {
+  padding-left: 18px;
+}
+
+.resume-block li {
+  margin-bottom: 5px;
+}
+
+/* Footer */
+#contact {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Mobile Responsive (< 700px) */
+@media (max-width: 700px) {
+  .nav-inner, .resume-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .section-grid, .two-col {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .paper-sheet {
+    padding: 24px 20px;
+  }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+}
+
+/* A4 Print Styles for PDF Generation */
+@media print {
+  body {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  #top-nav, #hero, #experience, #projects, #creative-honours, #contact, .resume-bar {
+    display: none !important;
+  }
+
+  .container, section, #resume {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .paper-sheet {
+    border: none;
+    padding: 0;
+    max-width: 100%;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  .resume-block h4, .resume-contact {
+    color: #000000;
+  }
+}
